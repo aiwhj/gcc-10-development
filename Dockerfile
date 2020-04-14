@@ -21,7 +21,6 @@ RUN set -ex; \
 	; \
 	rm -r /var/lib/apt/lists/*; \
 	\
-
 	mkdir -p /usr/src/; \
     git clone https://github.com/gcc-mirror/gcc.git /usr/src/gcc \
 	\
