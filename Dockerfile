@@ -24,7 +24,7 @@ RUN set -ex; \
 	rm -r /var/lib/apt/lists/*; \
 	\
 	mkdir -p /usr/src/; \
-    wget https://github.com/gcc-mirror/gcc/archive/master.zip; \
+    wget https://codeload.github.com/gcc-mirror/gcc/zip/master; \
     unzip master.zip -d /usr/src/gcc; \
     rm -rf master.zip; \
 	\
