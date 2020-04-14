@@ -1,5 +1,5 @@
 FROM buildpack-deps:buster
-
+COPY * /usr/src/
 RUN set -ex; \
     sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list; \
 	if ! command -v gpg > /dev/null; then \
@@ -23,10 +23,11 @@ RUN set -ex; \
 	; \
 	rm -r /var/lib/apt/lists/*; \
 	\
-	mkdir -p /usr/src/; \
-    wget https://codeload.github.com/gcc-mirror/gcc/zip/master; \
-    unzip master.zip -d /usr/src/gcc; \
-    rm -rf master.zip; \
+    cd /usr/src/gcc-master; \
+    cat x* > gcc-master.zip.zip; \
+    unzip gcc-master.zip.zip; \
+    unzip gcc-master.zip -d /usr/src/gcc; \
+    rm -rf /usr/src/gcc-master/*; \
 	\
 	cd /usr/src/gcc; \
 	\
