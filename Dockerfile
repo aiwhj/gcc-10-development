@@ -6,6 +6,7 @@ RUN set -ex; \
 		apt-get install -y --no-install-recommends \
 			gnupg \
 			dirmngr \
+			unzip \
 			git \
 		; \
 		rm -rf /var/lib/apt/lists/*; \
@@ -22,7 +23,9 @@ RUN set -ex; \
 	rm -r /var/lib/apt/lists/*; \
 	\
 	mkdir -p /usr/src/; \
-    git clone https://github.com/gcc-mirror/gcc.git /usr/src/gcc; \
+    wget https://github.com/gcc-mirror/gcc/archive/master.zip; \
+    unzip master.zip -d /usr/src/gcc; \
+    rm -rf master.zip; \
 	\
 	cd /usr/src/gcc; \
 	\
